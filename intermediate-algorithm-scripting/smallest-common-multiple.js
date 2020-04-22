@@ -23,6 +23,10 @@ function gcd(a, b) {
   }
 }
 
+function lcm(a, b) {
+  return Math.abs(a * b) / gcd(a, b)
+}
+
 smallestCommons([1,5]);
 // smallestCommons([23, 18]);
 
@@ -36,3 +40,32 @@ console.log();
 // resources used
 // https://en.wikipedia.org/wiki/Least_common_multiple
 // https://en.wikipedia.org/wiki/Euclidean_algorithm
+
+
+// trying to understand. failing
+// const smallestCommons = arr => {
+//   let max = Math.max(...arr);
+//   let min = Math.min(...arr);
+
+//   console.log(`max, min = ${max}, ${min}`);
+
+//   let sol = max;
+
+//   console.log(`sol initial = ${sol}`);
+
+//   for (let i = max - 1; i >= min; i--) {
+//     if (sol % i) {
+//       sol += max;
+//       console.log(`sol${i} = ${sol}`);
+//       i = max;
+//       console.log(`max${i} = ${max}`);
+//     }
+//   }
+
+//   console.log(`Final sol = ${sol}`);
+
+//   return sol;
+// };
+
+// // test here
+// smallestCommons([1, 5]);

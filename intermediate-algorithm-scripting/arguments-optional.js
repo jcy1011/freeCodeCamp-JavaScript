@@ -11,17 +11,40 @@
 
 // If either argument isn't a valid number, return undefined.
 
+// function addTogether() {
+//   if (arguments.length === 2
+//       && typeof arguments[0] === 'number'
+//       && typeof arguments[1] === 'number') {
+//     return arguments[0] + arguments[1]
+//   }
+//   if (arguments.length === 1
+//       && typeof arguments[0] === 'number') {
+//     let arg1 = arguments[0];
+//     return function(arg2) {
+//       if (typeof arg2 === 'number'){
+//         return arg1 + arg2;
+//       }
+//     }
+//   }
+//   return undefined;
+// }
+
+// Using helper function isNumber. Just barely a bit cleaner than above.
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+
 function addTogether() {
   if (arguments.length === 2
-      && typeof arguments[0] === 'number'
-      && typeof arguments[1] === 'number') {
-    return arguments[0] + arguments[1]
+      && isNumber(arguments[0])
+      && isNumber(arguments[1])) {
+    return arguments[0] + arguments[1];
   }
   if (arguments.length === 1
-      && typeof arguments[0] === 'number') {
+      && isNumber(arguments[0])) {
     let arg1 = arguments[0];
     return function(arg2) {
-      if (typeof arg2 === 'number'){
+      if (isNumber(arg2)){
         return arg1 + arg2;
       }
     }

@@ -1,5 +1,5 @@
 
-// Working solution 
+// Working solution
 function whatIsInAName(collection, source) {
   // "What's in a name? that which we call a rose
   // By any other name would smell as sweet.”
@@ -7,8 +7,7 @@ function whatIsInAName(collection, source) {
   var srcKeys = Object.keys(source);
 
   return collection.filter(function(obj) {
-    return srcKeys.every((key) => obj.hasOwnProperty(key)
-    && obj[key] === source[key]);
+    return srcKeys.every((key) => obj.hasOwnProperty(key) && obj[key] === source[key]);
   });
 }
 

@@ -1,3 +1,18 @@
+// Working solution, I had seen this the previous day and remembered
+// But had some bug and made it work
+function whatIsInAName(collection, source) {
+  const srcKeys = Object.keys(source);
+  return collection.filter(function(obj) {
+    for (let i = 0; i < srcKeys.length; i++) {
+      if (!obj.hasOwnProperty(srcKeys[i]) ||
+          obj[srcKeys[i]] !== source[srcKeys[i]]) {
+          return false;
+      }
+    }
+    return true;
+  });
+}
+
 
 // Working solution
 function whatIsInAName(collection, source) {
@@ -12,6 +27,18 @@ function whatIsInAName(collection, source) {
 }
 
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+// Same as above different formatting
+function whatIsInAName(collection, source) {
+  const srcKeys = Object.keys(source);
+  return collection.filter(function(obj) {
+    return srcKeys.every(function(key) {
+      return obj.hasOwnProperty(key) && obj[key] === source[key]
+    })
+  });
+}
+
+
 
 
 

@@ -1,3 +1,18 @@
+// Working solution I copied and refactored
+function smallestCommons(arr) {
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+  let result = max;
+  for (let i = max - 1; i >= min; i--) {
+    if (result % i) {
+      result += max;
+      i = max;
+    }
+  }
+  return result;
+};
+
+
 function smallestCommons(arr) {
   let sortedArr = arr.sort((a, b) =>
     a < b ? 1: a > b ? -1: 0);

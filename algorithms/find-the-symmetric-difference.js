@@ -40,3 +40,6 @@ function sym(args) {
 sym([1, 2, 5], [2, 3, 5], [3, 4, 5])
 
 
+// Resources
+// https://monkeyraptor.johanpaul.net/2015/05/javascript-counting-same-occurrences-in.html
+// https://en.wikipedia.org/wiki/Symmetric_difference

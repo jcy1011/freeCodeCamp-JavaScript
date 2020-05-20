@@ -1,16 +1,20 @@
-// Working solution I copied and refactored
+// Working solution I did but had seen before
 function smallestCommons(arr) {
-  let max = Math.max(...arr);
-  let min = Math.min(...arr);
-  let result = max;
-  for (let i = max - 1; i >= min; i--) {
-    if (result % i) {
-      result += max;
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  // assume the solution is max
+  let multiple = max;
+  // check if multiple is divisible by all numbers between
+  // it and min inclusive
+  for (let i = max - 1; i >= min ;i--) {
+    if (multiple % i) {
+      // if it's not increment it by max until it is
+      multiple += max;
       i = max;
     }
   }
-  return result;
-};
+  return multiple;
+}
 
 
 function smallestCommons(arr) {

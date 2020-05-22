@@ -1,23 +1,20 @@
-// Inventory output is incomplete. It does not include items in existing
-// inventory (arr1) that had no additions. Also need to sort it
+// Working solution
 function updateInventory(arr1, arr2) {
     const updatedInvArr = [];
-    const flatArr1 = arr1.flat()
-    // console.log(flatArr1);
     for (let i = 0; i < arr2.length; i++) {
-        if (flatArr1.includes(arr2[i][1])) {
-            // console.log('MORE:', arr2[i][1]);
+        if (arr1.flat().includes(arr2[i][1])) {
             let index = arr1.findIndex(arr => arr[1] === arr2[i][1])
-            // console.log(arr1[index][0])
             updatedInvArr.push([arr1[index][0] + arr2[i][0], arr2[i][1]])
         }   else {
-            // console.log('NEW:', arr2[i][1]);
             updatedInvArr.push(arr2[i]);
         }
-        // updatedInvArr.push(arr1.filter(arr => !flatArr1.includes(arr2[i][1])))
     }
-    console.log(updatedInvArr);
-    return; // sorted arr
+    for (let i = 0; i < arr1.length; i++) {
+        if (!arr2.flat().includes(arr1[i][1])) {
+            updatedInvArr.push(arr1[i])
+        }
+    }
+    return updatedInvArr.sort((a, b) => a[1] > b[1] ? 1 : -1);
 }
 
 // Example inventory lists

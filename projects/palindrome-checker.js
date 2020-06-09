@@ -1,29 +1,38 @@
-// Finished, formatted, working answer
+// More concise answer
 function palindrome(str) {
-  // convert all char to same case and remove all non-alphanumeric characters
-  const arr = str.toLowerCase().match(/[a-z0-9]/g)
-  // if length is an odd number
-  if (arr.length % 2) {
-    const index = Math.ceil(arr.length / 2) - 1;
-
-    const arrEnd = []
-    for (let i = index; i < arr.length; i++) {
-      arrEnd.push(arr[i])
-    }
-
-    const arrBeg = []
-    for (let i = index; i >= 0; i--) {
-      arrBeg.push(arr[i])
-    }
-
-    return arrBeg.join('') === arrEnd.join('');
-
-  }
-  // if length is an even number
-  const arrBeg = arr.slice(0, arr.length / 2);
-  const arrEnd = arr.slice(arr.length / 2).reverse();
-  return arrBeg.join('') === arrEnd.join('')
+  str = str.toLowerCase().replace(/[\W_]/g , '');
+  return str ===
+         str.split('').reverse().join('');
 }
+
+
+
+// Finished, formatted, working answer
+// function palindrome(str) {
+//   // convert all char to same case and remove all non-alphanumeric characters
+//   const arr = str.toLowerCase().match(/[a-z0-9]/g)
+//   // if length is an odd number
+//   if (arr.length % 2) {
+//     const index = Math.ceil(arr.length / 2) - 1;
+
+//     const arrEnd = []
+//     for (let i = index; i < arr.length; i++) {
+//       arrEnd.push(arr[i])
+//     }
+
+//     const arrBeg = []
+//     for (let i = index; i >= 0; i--) {
+//       arrBeg.push(arr[i])
+//     }
+
+//     return arrBeg.join('') === arrEnd.join('');
+
+//   }
+//   // if length is an even number
+//   const arrBeg = arr.slice(0, arr.length / 2);
+//   const arrEnd = arr.slice(arr.length / 2).reverse();
+//   return arrBeg.join('') === arrEnd.join('')
+// }
 
 
 

@@ -53,10 +53,7 @@ function selectionSort(arr) {
     let min = Math.min(...arr.slice(i));
     let tmp = arr[i]
     // arr[i] = min
-
-
-
-
+    
     // let index = arr.slice(i).indexOf(min);
     // console.log(...arr.slice(i));
     // console.log(`min: ${min}`);
